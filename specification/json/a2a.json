@@ -122,14 +122,14 @@
                     "description": "Optional capabilities supported by the agent."
                 },
                 "defaultInputModes": {
-                    "description": "The set of interaction modes that the agent supports across all skills. This can be overridden per-skill.\nSupported mime types for input.",
+                    "description": "The set of interaction modes that the agent supports across all skills. This can be overridden per-skill.\nSupported media types for input.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "defaultOutputModes": {
-                    "description": "Supported mime types for output.",
+                    "description": "Supported media types for output.",
                     "items": {
                         "type": "string"
                     },
@@ -141,6 +141,10 @@
                 },
                 "documentationUrl": {
                     "description": "A URL to documentation for the agent.",
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "description": "A URL to an icon for the agent.",
                     "type": "string"
                 },
                 "name": {
@@ -240,7 +244,7 @@
                     "type": "string"
                 },
                 "inputModes": {
-                    "description": "The set of interaction modes that the skill supports\n(if different than the default).\nSupported mime types for input.",
+                    "description": "The set of interaction modes that the skill supports\n(if different than the default).\nSupported media types for input.",
                     "items": {
                         "type": "string"
                     },
@@ -251,7 +255,7 @@
                     "type": "string"
                 },
                 "outputModes": {
-                    "description": "Supported mime types for output.",
+                    "description": "Supported media types for output.",
                     "items": {
                         "type": "string"
                     },
@@ -363,6 +367,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -387,7 +392,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -401,6 +407,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -592,6 +599,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -616,7 +624,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -630,6 +639,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -661,6 +671,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -676,7 +687,7 @@
                     "$ref": "#/definitions/GetTaskSuccessResponse"
                 }
             ],
-            "description": "JSON-RPC success response for the 'tasks/get' method."
+            "description": "JSON-RPC response for the 'tasks/get' method."
         },
         "GetTaskSuccessResponse": {
             "description": "JSON-RPC success response for the 'tasks/get' method.",
@@ -685,7 +696,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -699,6 +711,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -938,7 +951,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -949,6 +963,7 @@
             },
             "required": [
                 "error",
+                "id",
                 "jsonrpc"
             ],
             "type": "object"
@@ -960,7 +975,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -981,7 +997,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -1031,14 +1048,15 @@
             ],
             "description": "Represents a JSON-RPC 2.0 Response object."
         },
-        "JSONRPCResult": {
-            "description": "Represents a JSON-RPC 2.0 Result object.",
+        "JSONRPCSuccessResponse": {
+            "description": "Represents a JSON-RPC 2.0 Success Response object.",
             "properties": {
                 "id": {
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -1051,6 +1069,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -1327,6 +1346,10 @@
                 "authentication": {
                     "$ref": "#/definitions/PushNotificationAuthenticationInfo"
                 },
+                "id": {
+                    "description": "Push Notification ID - created by server to support multiple callbacks",
+                    "type": "string"
+                },
                 "token": {
                     "description": "Token unique to this task/session.",
                     "type": "string"
@@ -1417,6 +1440,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -1441,7 +1465,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -1462,6 +1487,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -1493,6 +1519,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -1517,7 +1544,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -1544,6 +1572,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -1575,6 +1604,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
@@ -1599,7 +1629,8 @@
                     "description": "An identifier established by the Client that MUST contain a String, Number.\nNumbers SHOULD NOT contain fractional parts.",
                     "type": [
                         "string",
-                        "integer"
+                        "integer",
+                        "null"
                     ]
                 },
                 "jsonrpc": {
@@ -1613,6 +1644,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "result"
             ],
@@ -1834,6 +1866,7 @@
                 }
             },
             "required": [
+                "id",
                 "jsonrpc",
                 "method",
                 "params"
