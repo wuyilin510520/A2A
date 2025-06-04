@@ -8,5 +8,7 @@
     }
   },
   "ruff.importStrategy": "fromEnvironment",
-  "markdownlint.configFile": ".github/linters/.markdownlint.json"
+  "markdownlint.config": {
+    "MD007": { "indent": 4 },
+  }
 }
